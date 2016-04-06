@@ -1,11 +1,8 @@
 // import the stylesheet. this is necessary so that webpack will compile all the sass into css and then build it into our style.css file
 import './../styles/main.scss';
 
-// import a module from another file.
-import tiy from './app.js';
-
-// Looks like the imported module was a function, because here we're executing it!
-tiy();
+import $ from 'jquery';
+import Backbone from 'Backbone';
 
 
 // 1. Use an event listener and event handler to console.log whatever is in the input box whenever 
@@ -21,6 +18,22 @@ tiy();
 //1. Target the element we're trying to listen for the event on
 //2. Tell a function to run when that event happens
 //3. Create the function  
+
+
+/**************************************************
+Refactor your vanilla js todo list from day 14 to use backbone views, models and collections. 
+Break down your todo list as follows:
+
+src/scripts/main.js should hold your _instantiated _ collection of todo items. It should also 
+instantiate your todo item views (see below).
+
+It should have a render method.
+It should listen for click events.
+When a click event occurs, it should update the model to toggle the completed status.
+It should listen for change events to the model.
+When a model change event occurs it should re-render the item.
+
+**************************************************/
 
 var arr = [];
 var buttonEl = document.querySelector('.btnSubmit');
