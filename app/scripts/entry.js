@@ -35,38 +35,85 @@ When a model change event occurs it should re-render the item.
 
 **************************************************/
 
-var arr = [];
-var buttonEl = document.querySelector('.btnSubmit');
-buttonEl.addEventListener('click', textLogger);
+const TodoForm = Backbone.View.extend ({
+	tagName: 'form',
+	className: 'todoform',
+	todoItems: [],
+	events: {
+		'click .btnSubmit': 'onSubmitClick'
+	},
+	
 
-//Inputs: None
-//Outputs: None
+	initialize: function() {
 
-function textLogger() {
-	console.log(document.querySelector('.txtInput').value);
-	//push whatever is in the input box to the array
-	arr.push(document.querySelector('.txtInput').value);
-	document.querySelector('.txtInput').value = '';
-	render(arr);
-}
+		this.render();  
+	},
+
+	//code to build the element
+	render: function () {  
+
+		const template = `
+			<input class="txtInput" type="text">
+			<div>
+ 				<button class="btnSubmit">Add to List</button>
+ 			</div>
+ 			<p class="txtArea" ${this}></p>
+		`;
+
+
+
+		this.$el.append(template);
+	},
+
+	onSubmitClick: function() {
+		//copy code here for event listener and textlogger function - see below.  
+
+	}
+
+
+
+
+	let newImageView = new ImageView(this.);
+	$('todo-list').append(newImageView.$el);
+});
+
+
+
+
+
+
+// var arr = [];
+// var buttonEl = document.querySelector('.btnSubmit');
+// buttonEl.addEventListener('click', textLogger);
+
+// //Inputs: None
+// //Outputs: None
+
+// function textLogger() {
+// 	console.log(document.querySelector('.txtInput').value);
+// 	//push whatever is in the input box to the array
+// 	arr.push(document.querySelector('.txtInput').value);
+// 	document.querySelector('.txtInput').value = '';
+// 	render(arr);
+// }
 
 
 //render clears out all of the html inside of the section 
 //and then iterates over the array and builds up an html string that contains all the todo 
 //items in the array.
-//Then set that newly created string to the contents of the section.  
+ //Then set that newly created string to the contents of the section.  
 
-//Inputs: array
-//Outputs:  None
+// //Inputs: array
+// //Outputs:  None
 
-function render(arr) {
-	var todoItems = '';
+// function render(arr) {
+// 	var todoItems = '';
 
-	document.querySelector('.txtArea').innerHTML = '';
-	for (var i = 0; i < arr.length; i++) {
+// 	document.querySelector('.txtArea').innerHTML = '';
+// 	for (var i = 0; i < arr.length; i++) {
 	
-	todoItems = (todoItems + arr[i].toString() + '<br>');  
-	}
-	document.querySelector('.txtArea').innerHTML = todoItems; 
-}
+// 	todoItems = (todoItems + arr[i].toString() + '<br>');  
+// 	}
+// 	document.querySelector('.txtArea').innerHTML = todoItems; 
+// }
 
