@@ -1,7 +1,7 @@
 {
-  "name": "webpackPractice",
+  "name": "todo-list-refactor",
   "version": "1.0.0",
-  "description": "",
+  "description": "With the following features:",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,13 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MHG16/todo-list-refactor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MHG16/todo-list-refactor/issues"
+  },
+  "homepage": "https://github.com/MHG16/todo-list-refactor#readme"
 }
