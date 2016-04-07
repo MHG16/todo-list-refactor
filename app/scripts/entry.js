@@ -4,6 +4,39 @@ import './../styles/main.scss';
 import $ from 'jquery';
 import Backbone from 'Backbone';
 
+const TodoItemView = Backbone.View.extend({
+	tagName: 'li',
+	initialize: function(thingToDo) {  //intialize - make sure that information is available inside render
+		this.item = thingToDo;   //making thingToDo available to render.  Assigning thingToDo to this.item	
+		this.render();  //run a new function on your object called render
+		
+	},
+
+	render: function () {  //renders job is to make this thing look like it should.  Render is a method
+		this.$el.html(this.item); //put item and put it into my element
+	}
+
+});
+
+let item1 = new TodoItemView('Wash car');  //here we are instantiating a TodoItemView
+let item2 = new TodoItemView('Do dishes');  //item1 and item2 are objects which are backbone views.
+console.log(item1);
+
+$('#todo-list1').append(item1.$el); //taking the view and appending it to the element on the page
+$('#todo-list1').append(item2.$el);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 1. Use an event listener and event handler to console.log whatever is in the input box whenever 
 //the button is clicked.
@@ -35,70 +68,70 @@ When a model change event occurs it should re-render the item.
 
 **************************************************/
 
-const TodoForm = Backbone.View.extend ({
-	tagName: 'section',
-	className: 'todoform',
-	todoItems: [],
-	events: {
-		'click .btnSubmit': 'onSubmitClick'
-	},
+// const TodoForm = Backbone.View.extend ({
+// 	tagName: 'section',
+// 	className: 'todoform',
+// 	todoItems: [],
+// 	events: {
+// 		'click .btnSubmit': 'onSubmitClick'
+// 	},
 	
 
-	initialize: function() {
-		this.tdItems;  
-		this.render();  
-	},
+// 	initialize: function() {
+// 		this.tdItems;  
+// 		this.render();  
+// 	},
 
-	//code to build the element
-	render: function () {  
+// 	//code to build the element
+// 	render: function () {  
 
-		//adds a text input, button and text area to the page
-		const template = `
-			<div class="container">
-				<input class="txtInput" type="text">
-				<div>
- 					<button class="btnSubmit">Add to List</button>
- 				</div>
- 				<p class="txtArea">${this.tdItems}</p>
- 			</div>
-		`;
+// 		//adds a text input, button and text area to the page
+// 		const template = `
+// 			<div class="container">
+// 				<input class="txtInput" type="text">
+// 				<div>
+//  					<button class="btnSubmit">Add to List</button>
+//  				</div>
+//  				<p class="txtArea">${this.tdItems}</p>
+//  			</div>
+// 		`;
 
-		this.$el.append(template);
-	},
+// 		this.$el.append(template);
+// 	},
 
-	onSubmitClick: function() {
+// 	onSubmitClick: function() {
 
-		//create event listener
-		let buttonEl = document.querySelector('.btnSubmit');
-		buttonEl.addEventListener('click', textLogger);
+// 		//create event listener
+// 		let buttonEl = document.querySelector('.btnSubmit');
+// 		buttonEl.addEventListener('click', textLogger);
 
-		function textLogger() {
-		 	console.log(document.querySelector('.txtInput').value);
-		 	//	push whatever is in the input box to the array
-			todoItems.push(document.querySelector('.txtInput').value);
-			document.querySelector('.txtInput').value = '';
-			displayResults(todoItems);
-		}
+// 		function textLogger() {
+// 		 	console.log(document.querySelector('.txtInput').value);
+// 		 	//	push whatever is in the input box to the array
+// 			todoItems.push(document.querySelector('.txtInput').value);
+// 			document.querySelector('.txtInput').value = '';
+// 			displayResults(todoItems);
+// 		}
 
-		//adds items from array to text area 
-		function displayResults(arr) {
+// 		//adds items from array to text area 
+// 		function displayResults(arr) {
 			
-			let tdItems = '';
-			document.querySelector('.txtArea').innerHTML = '';
-			for (var i = 0; i < arr.length; i++) {
+// 			let tdItems = '';
+// 			document.querySelector('.txtArea').innerHTML = '';
+// 			for (var i = 0; i < arr.length; i++) {
 	
-			tdItems = (tdItems + arr[i].toString() + '<br>');  
-			}
-			document.querySelector('.txtArea').innerHTML = tdItems; 
-		}	
+// 			tdItems = (tdItems + arr[i].toString() + '<br>');  
+// 			}
+// 			document.querySelector('.txtArea').innerHTML = tdItems; 
+// 		}	
 
-	}
+// 	}
 
-});
+// });
 
 
-	let newTodoForm = new TodoForm(val.tdItems);
-	$('todo-list').append(newTodoForm.$el);
+// 	let newTodoForm = new TodoForm(val.tdItems);
+// 	$('todo-list').append(newTodoForm.$el);
 
 
 
