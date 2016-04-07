@@ -11,12 +11,13 @@ const TodoItemView = Backbone.View.extend({
 	},
 
 	render: function () {  //renders job is to make this thing look like it should.  Render is a method
-		this.$el.html(this.item); //put item and put it into my element
+		this.$el.html(this.item); //get item and put it into my element
 	},
 
-	toggleCompletion: function() {  //if on turn it off, if off, turn on 
+	toggleCompletion: function() {  //if on turn it off, if off, turn on.  This is for strike through of completed items
+
 		console.log('test');
-		this.$el.toggleClass('.incomplete complete');
+		this.$el.toggleClass('.incomplete complete');  
 	}
 
 });
