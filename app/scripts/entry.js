@@ -3,8 +3,8 @@ import './../styles/main.scss';
 
 import $ from 'jquery';
 
-import TodoListView from './views/TodoListView'
 //a lot of logic is abstracted away in TodoItemView 
+import TodoListView from './views/TodoListView'
 
 /**************************************************
 Refactor your vanilla js todo list from day 14 to use backbone views, models and collections. 
@@ -20,29 +20,14 @@ It should listen for change events to the model.
 When a model change event occurs it should re-render the item.
 
 **************************************************/
-
+//instantiate a TodoListView
 let personalTodoList = new TodoListView();
 
-
+//append the 
 $('body').append(personalTodoList.$el);
 
 
 
-// $('#add-todo').on('submit', (e) => {  
-// 	e.preventDefault();
-// 	let thingToDo = $('#todo-text').val();  
-// 	let item = new TodoItemView(thingToDo);
-// 	$('#todo-list1').append(item.$el);
-// });
-
-
-
-// let item1 = new TodoItemView('Wash car');  //here we are instantiating a TodoItemView
-// let item2 = new TodoItemView('Do dishes');  //item1 and item2 are objects which are backbone views.
-// console.log(item1);
-
-// $('#todo-list1').append(item1.$el); //taking the view and appending it to the element on the page
-// $('#todo-list1').append(item2.$el);
 
 
 
