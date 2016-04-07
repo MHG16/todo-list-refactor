@@ -36,7 +36,7 @@ When a model change event occurs it should re-render the item.
 **************************************************/
 
 const TodoForm = Backbone.View.extend ({
-	tagName: 'form',
+	tagName: 'section',
 	className: 'todoform',
 	todoItems: [],
 	events: {
@@ -45,7 +45,7 @@ const TodoForm = Backbone.View.extend ({
 	
 
 	initialize: function() {
-		this.
+		this.tdItems;  
 		this.render();  
 	},
 
@@ -53,14 +53,14 @@ const TodoForm = Backbone.View.extend ({
 	render: function () {  
 
 		const template = `
-			<input class="txtInput" type="text">
-			<div>
- 				<button class="btnSubmit">Add to List</button>
+			<div class="container">
+				<input class="txtInput" type="text">
+				<div>
+ 					<button class="btnSubmit">Add to List</button>
+ 				</div>
+ 				<p class="txtArea">${this.tdItems}</p>
  			</div>
- 			<p class="txtArea"></p>
 		`;
-
-
 
 		this.$el.append(template);
 	},
@@ -73,30 +73,29 @@ const TodoForm = Backbone.View.extend ({
 		function textLogger() {
 		 	console.log(document.querySelector('.txtInput').value);
 		 	//	push whatever is in the input box to the array
-			arr.push(document.querySelector('.txtInput').value);
+			todoItems.push(document.querySelector('.txtInput').value);
 			document.querySelector('.txtInput').value = '';
-			render(arr);
+			displayResults(todoItems);
 		}
 
-		function render(arr) {
-			let todoItems = '';
-
+		function displayResults(arr) {
+			
+			let tdItems = '';
 			document.querySelector('.txtArea').innerHTML = '';
 			for (var i = 0; i < arr.length; i++) {
 	
-			todoItems = (todoItems + arr[i].toString() + '<br>');  
+			tdItems = (tdItems + arr[i].toString() + '<br>');  
 			}
-			document.querySelector('.txtArea').innerHTML = todoItems; 
+			document.querySelector('.txtArea').innerHTML = tdItems; 
 		}	
 
-	};
+	}
 
-
-
-
-	let newTodoForm = new TodoForm(this.);
-	$('todo-list').append(newImageView.$el);
 });
+
+
+	let newTodoForm = new TodoForm(val.tdItems);
+	$('todo-list').append(newTodoForm.$el);
 
 
 
