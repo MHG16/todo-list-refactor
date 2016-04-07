@@ -3,36 +3,55 @@ import './../styles/main.scss';
 
 import $ from 'jquery';
 import Backbone from 'Backbone';
+import TodoItemView from './views/TodoItemView'  //need ./ or it will look in node_modules
 
-const TodoItemView = Backbone.View.extend({
-	tagName: 'li',
+//a lot of logic is abstracted away in TodoItemView 
+
+
+const TodoListView = Backbone.View.extend ({
+	tagName: 'section',  //section is the root element for the TodoListView
 	events: {
-		'click': 'toggleCompletion'  //when element gets clicked run toggleCompletion function
+		'submit .add-todo': 'addTodo'
 	},
-	className: 'incomplete', 
-	initialize: function(thingToDo) {  //intialize - make sure that information is available inside render
-		this.item = thingToDo;   //making thingToDo available to render.  Assigning thingToDo to this.item	
-		this.render();  //run a new function on your object called render
-		
+	initialize: function() {
+		this.render();
 	},
+	render: function() {
+		const template = `
+		<form class="add-todo">
+			<input type="text" class="todo-text">
+			<button type="submit">Add Todo</button>
+		</form>
+		<ul class="todo-list1"></ul>`; 
+		this.$el.html(template);
 
-	render: function () {  //renders job is to make this thing look like it should.  Render is a method
-		this.$el.html(this.item); //put item and put it into my element
 	},
-
-	toggleCompletion: function() {  //if on turn it off, if off, turn on 
-		console.log('test');
-		this.$el.toggleClass('.incomplete complete');
+	addTodo: function(e) {
+		e.preventDefault();
+		let thingToDo = $('.todo-text').val();
 	}
 
 });
 
-let item1 = new TodoItemView('Wash car');  //here we are instantiating a TodoItemView
-let item2 = new TodoItemView('Do dishes');  //item1 and item2 are objects which are backbone views.
-console.log(item1);
+let workTodoList = new TodoListView();
 
-$('#todo-list1').append(item1.$el); //taking the view and appending it to the element on the page
-$('#todo-list1').append(item2.$el);
+$('body').append(workTodoList.$el);
+
+// $('#add-todo').on('submit', (e) => {  
+// 	e.preventDefault();
+// 	let thingToDo = $('#todo-text').val();  
+// 	let item = new TodoItemView(thingToDo);
+// 	$('#todo-list1').append(item.$el);
+// });
+
+
+
+// let item1 = new TodoItemView('Wash car');  //here we are instantiating a TodoItemView
+// let item2 = new TodoItemView('Do dishes');  //item1 and item2 are objects which are backbone views.
+// console.log(item1);
+
+// $('#todo-list1').append(item1.$el); //taking the view and appending it to the element on the page
+// $('#todo-list1').append(item2.$el);
 
 
 
