@@ -52,6 +52,7 @@ const TodoForm = Backbone.View.extend ({
 	//code to build the element
 	render: function () {  
 
+		//adds a text input, button and text area to the page
 		const template = `
 			<div class="container">
 				<input class="txtInput" type="text">
@@ -67,6 +68,7 @@ const TodoForm = Backbone.View.extend ({
 
 	onSubmitClick: function() {
 
+		//create event listener
 		let buttonEl = document.querySelector('.btnSubmit');
 		buttonEl.addEventListener('click', textLogger);
 
@@ -78,6 +80,7 @@ const TodoForm = Backbone.View.extend ({
 			displayResults(todoItems);
 		}
 
+		//adds items from array to text area 
 		function displayResults(arr) {
 			
 			let tdItems = '';
@@ -100,40 +103,4 @@ const TodoForm = Backbone.View.extend ({
 
 
 
-
-
-// var arr = [];
-// var buttonEl = document.querySelector('.btnSubmit');
-// buttonEl.addEventListener('click', textLogger);
-
-// //Inputs: None
-// //Outputs: None
-
-// function textLogger() {
-// 	console.log(document.querySelector('.txtInput').value);
-// 	//push whatever is in the input box to the array
-// 	arr.push(document.querySelector('.txtInput').value);
-// 	document.querySelector('.txtInput').value = '';
-// 	render(arr);
-// }
-
-
-//render clears out all of the html inside of the section 
-//and then iterates over the array and builds up an html string that contains all the todo 
-//items in the array.
- //Then set that newly created string to the contents of the section.  
-
-// //Inputs: array
-// //Outputs:  None
-
-// function render(arr) {
-// 	var todoItems = '';
-
-// 	document.querySelector('.txtArea').innerHTML = '';
-// 	for (var i = 0; i < arr.length; i++) {
-	
-// 	todoItems = (todoItems + arr[i].toString() + '<br>');  
-// 	}
-// 	document.querySelector('.txtArea').innerHTML = todoItems; 
-// }
 
