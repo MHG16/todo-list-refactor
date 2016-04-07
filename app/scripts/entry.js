@@ -45,7 +45,7 @@ const TodoForm = Backbone.View.extend ({
 	
 
 	initialize: function() {
-
+		this.
 		this.render();  
 	},
 
@@ -57,7 +57,7 @@ const TodoForm = Backbone.View.extend ({
 			<div>
  				<button class="btnSubmit">Add to List</button>
  			</div>
- 			<p class="txtArea" ${this}></p>
+ 			<p class="txtArea"></p>
 		`;
 
 
