@@ -22,7 +22,7 @@ const TodoItemView = Backbone.View.extend({
 
 	toggleCompletion: function() {  //if on turn it off, if off, turn on 
 		console.log('test');
-		this.$el.toggleClass('incomplete');
+		this.$el.toggleClass('.incomplete complete');
 	}
 
 });
