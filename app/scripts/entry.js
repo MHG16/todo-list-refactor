@@ -2,40 +2,16 @@
 import './../styles/main.scss';
 
 import $ from 'jquery';
-import Backbone from 'Backbone';
-import TodoItemView from './views/TodoItemView'  //need ./ or it will look in node_modules
 
+import TodoListView from './views/TodoListView'
 //a lot of logic is abstracted away in TodoItemView 
 
 
-const TodoListView = Backbone.View.extend ({
-	tagName: 'section',  //section is the root element for the TodoListView
-	events: {
-		'submit .add-todo': 'addTodo'
-	},
-	initialize: function() {
-		this.render();
-	},
-	render: function() {
-		const template = `
-		<form class="add-todo">
-			<input type="text" class="todo-text">
-			<button type="submit">Add Todo</button>
-		</form>
-		<ul class="todo-list1"></ul>`; 
-		this.$el.html(template);
-
-	},
-	addTodo: function(e) {
-		e.preventDefault();
-		let thingToDo = $('.todo-text').val();
-	}
-
-});
-
 let workTodoList = new TodoListView();
+let personalTodoList = new TodoListView();
 
 $('body').append(workTodoList.$el);
+$('body').append(personalTodoList.$el); 
 
 // $('#add-todo').on('submit', (e) => {  
 // 	e.preventDefault();
