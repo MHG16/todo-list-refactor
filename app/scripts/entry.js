@@ -66,14 +66,35 @@ const TodoForm = Backbone.View.extend ({
 	},
 
 	onSubmitClick: function() {
-		//copy code here for event listener and textlogger function - see below.  
 
-	}
+		let buttonEl = document.querySelector('.btnSubmit');
+		buttonEl.addEventListener('click', textLogger);
+
+		function textLogger() {
+		 	console.log(document.querySelector('.txtInput').value);
+		 	//	push whatever is in the input box to the array
+			arr.push(document.querySelector('.txtInput').value);
+			document.querySelector('.txtInput').value = '';
+			render(arr);
+		}
+
+		function render(arr) {
+			let todoItems = '';
+
+			document.querySelector('.txtArea').innerHTML = '';
+			for (var i = 0; i < arr.length; i++) {
+	
+			todoItems = (todoItems + arr[i].toString() + '<br>');  
+			}
+			document.querySelector('.txtArea').innerHTML = todoItems; 
+		}	
+
+	};
 
 
 
 
-	let newImageView = new ImageView(this.);
+	let newTodoForm = new TodoForm(this.);
 	$('todo-list').append(newImageView.$el);
 });
 
