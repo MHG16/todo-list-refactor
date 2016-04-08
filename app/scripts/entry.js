@@ -6,6 +6,9 @@ import $ from 'jquery';
 //a lot of logic is abstracted away in TodoItemView 
 import TodoListView from './views/TodoListView'
 
+import TodoItemCollection from './collections/TodoItemCollection';
+
+
 /**************************************************
 Refactor your vanilla js todo list from day 14 to use backbone views, models and collections. 
 Break down your todo list as follows:
