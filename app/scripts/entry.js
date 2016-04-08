@@ -26,9 +26,34 @@ When a model change event occurs it should re-render the item.
 //instantiate a TodoListView
 let personalTodoList = new TodoListView();
 
-//append the 
+
 $('body').append(personalTodoList.$el);
 
+let personalTodoList = new TodoItemView();
+var settings = {
+	success: function() {
+		personalTodoList.forEach((todo) => {
+			//console.log(todo.get('caption'));
+			let newPersonalTodoListView = new TodoItemView(
+				todo.get('todoitem'),
+			);
+			$('.todo-list').append(newPersonalTodoListView.el);
+		});
+	}
+};
+personalTodoList.fetch(settings);
+
+$('.image-form').on('submit', (e) => {
+	e.preventDefault();
+	let newPersonalTodoList = {
+		todo: $('.src').val(),
+	};
+	personalTodoList.create(newPersonalTodoList);
+	let newTodoListView = new TodoItemView(
+		newPersonalTodoList.todoitem;
+	);
+	$('.image-list').append(newpersonalTodoListView.el);
+});
 
 
 
