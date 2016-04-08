@@ -6,9 +6,9 @@ import $ from 'jquery';
 //a lot of logic is abstracted away in TodoItemView 
 import TodoListView from './views/TodoListView'
 
-import TodoItemCollection from './collections/TodoItemCollection';
+import personalTodoListCollection from './collections/TodoItemCollection';
 
-
+import TodoItemView from './views/TodoItemView' 
 /**************************************************
 Refactor your vanilla js todo list from day 14 to use backbone views, models and collections. 
 Break down your todo list as follows:
@@ -26,34 +26,23 @@ When a model change event occurs it should re-render the item.
 //instantiate a TodoListView
 let personalTodoList = new TodoListView();
 
+// let personalTodoListCollection = new TodoItemCollection();
 
 $('body').append(personalTodoList.$el);
 
-let personalTodoList = new TodoItemView();
 var settings = {
 	success: function() {
-		personalTodoList.forEach((todo) => {
-			//console.log(todo.get('caption'));
+		personalTodoListCollection.forEach((todo) => {
+			console.log(todo.get('text'));
 			let newPersonalTodoListView = new TodoItemView(
-				todo.get('todoitem'),
+				todo.get('text')
 			);
-			$('.todo-list').append(newPersonalTodoListView.el);
+			$('.todo-list1').append(newPersonalTodoListView.el);
 		});
 	}
 };
-personalTodoList.fetch(settings);
+personalTodoListCollection.fetch(settings);
 
-$('.image-form').on('submit', (e) => {
-	e.preventDefault();
-	let newPersonalTodoList = {
-		todo: $('.src').val(),
-	};
-	personalTodoList.create(newPersonalTodoList);
-	let newTodoListView = new TodoItemView(
-		newPersonalTodoList.todoitem;
-	);
-	$('.image-list').append(newpersonalTodoListView.el);
-});
 
 
 

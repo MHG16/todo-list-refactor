@@ -1,11 +1,8 @@
 import Backbone from 'backbone';
 
 const TodoItemModel = Backbone.Model.extend({
-	defaults: {
-		todoitem: 'No todo items available'
-		
-	},
-	urlRoot: 'http://small-tiyfe.herokuapp.com/collections/mhgrossmann/todolist'
+	
+	urlRoot: 'http://small-tiyfe.herokuapp.com/collections/mhgrossmann',
 	idAttribute: '_id'
 });
 

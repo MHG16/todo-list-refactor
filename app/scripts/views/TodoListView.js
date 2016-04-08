@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 import TodoItemView from './TodoItemView'
-
+import TodoItemCollection from '../collections/TodoItemCollection'
 
 //TodoListView is a view that is created for the form which has an input field, a submit button 
 //and an unordered list that is the todo-list
@@ -30,6 +30,7 @@ const TodoListView = Backbone.View.extend ({
 		let thingToDo = this.$('.todo-text').val(); //this.$ only searches the specific view I am in
 		let item = new TodoItemView(thingToDo);  //instantiate a TodoItemView 
 		this.$('.todo-list1').append(item.$el);  //adds a todo item to the page
+		TodoItemCollection.create({text:thingToDo});
 	}
 
 });
